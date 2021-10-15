@@ -14,12 +14,13 @@
   </head>
   <body>
     <template id="tooltip-template">
-      <span>(?)</span>
+      <slot>Som default value</slot><span>(?)</span>
     </template>
     <p>
       <my-tooltip text="Web components is a set of standards">Web components</my-tooltip>
       are awesome!
     </p>
-    <p><my-tooltip></my-tooltip> Another awesome tooltip!</p>
+    <p><my-tooltip>Another awesome tooltip!</my-tooltip> </p>
+    <p><my-tooltip></my-tooltip> </p>
   </body>
 </html>
