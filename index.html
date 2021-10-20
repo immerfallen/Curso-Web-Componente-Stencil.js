@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Components</title>
     <script src="tooltip.js"></script>
+    <script src="confirm-link.js"></script>
     <style>
         div {
             border: solid orange 2px;
@@ -19,6 +20,8 @@
     </p>
     <p><my-tooltip>Another awesome tooltip!</my-tooltip> </p>
     <p><my-tooltip></my-tooltip> </p>
-    <div>This does not get the erb component style because of the shadow root!!</div>
+    <div>This does not get the web component style because of the shadow root!!</div>
+    <a href="https://www.google.com">Google</a>
+    <a is="uc-confirm-link" href="https://www.google.com">Google</a>
   </body>
 </html>
