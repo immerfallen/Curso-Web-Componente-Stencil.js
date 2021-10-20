@@ -12,15 +12,13 @@
         }
     </style>
   </head>
-  <body>
-    <template id="tooltip-template">
-      <slot>Som default value</slot><span>(?)</span>
-    </template>
+  <body>    
     <p>
       <my-tooltip text="Web components is a set of standards">Web components</my-tooltip>
       are awesome!
     </p>
     <p><my-tooltip>Another awesome tooltip!</my-tooltip> </p>
     <p><my-tooltip></my-tooltip> </p>
+    <div>This does not get the erb component style because of the shadow root!!</div>
   </body>
 </html>
