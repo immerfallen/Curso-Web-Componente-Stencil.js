@@ -7,10 +7,16 @@ class Tooltip extends HTMLElement {
     this.shadowRoot.innerHTML = `
     <style>
       div {
+        font-weight: normal;
         background-color: black;
         color: white;
         position: absolute;
-        z-index: 10
+        top: 2rem;
+        left: 0.75rem;
+        z-index: 10;
+        padding: 0.15rem;
+        border-radius: 3px;
+        box-shadow: 1px 1px 6px rgba(0,0,0,0.26);
       }
       highlight {
         background-color: red;
@@ -22,11 +28,12 @@ class Tooltip extends HTMLElement {
       
       :host(.important) {
         background: var(--color-primary, #ccc)
+        padding: 0.15rem
       }
 
-      :host-context(p) {
+       /*:host-context(p) {
         font-weight: bold;
-      }
+      } */
 
       .icon {
         background: black;
