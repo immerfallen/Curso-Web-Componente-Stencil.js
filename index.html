@@ -8,28 +8,35 @@
     <script src="tooltip.js"></script>
     <script src="confirm-link.js"></script>
     <style>
-        div {
-            border: solid orange 2px;
-        }
-        .highlight {
-          /* background-color: rgb(224, 224, 44);
-          border-bottom: 3px solid blue; */
-        }
 
-        my-tooltip {
-          border: 1px solid blue
-        }
-        
+      *{
+        box-sizing: border-box;
+      }
+      :root {
+        --color-primary: lightblue;
+        font-family: sans-serifw;
+      }
+
+      div {
+        border: solid orange 2px;
+      }
+      
+
+      
     </style>
   </head>
-  <body>    
+  <body>
     <p>
-      <my-tooltip class="important" text="Web components is a set of standards"><span class="highlight">Web components</span></my-tooltip>
+      <my-tooltip class="important" text="Web components is a set of standards"
+        ><span class="highlight">Web components</span></my-tooltip
+      >
       are awesome!
     </p>
-    <my-tooltip>Another awesome tooltip!</my-tooltip> 
-    <p><my-tooltip></my-tooltip> </p>
-    <div>This does not get the web component style because of the shadow root!!</div>
+    <my-tooltip>Another awesome tooltip!</my-tooltip>
+    <p><my-tooltip></my-tooltip></p>
+    <div>
+      This does not get the web component style because of the shadow root!!
+    </div>
     <a href="https://www.google.com">Google</a>
     <a is="uc-confirm-link" href="https://www.google.com">Google</a>
   </body>
