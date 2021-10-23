@@ -20,7 +20,7 @@ class Tooltip extends HTMLElement {
         border-bottom: 1px dotted red
       }
       
-      :host {
+      :host(.important) {
         background: #ccc
       }
 
