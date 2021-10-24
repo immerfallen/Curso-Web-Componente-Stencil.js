@@ -73,31 +73,36 @@ class Modal extends HTMLElement {
             <slot name="main"></slot>
         </section>
         <section id="actions">
-            <button>Cancel</button>
-            <button>Confirm</button>
+            <button id="cancel-btn">Cancel</button>
+            <button id="confirm-btn">Confirm</button>
         </section>
     </div>
     `;
 
-    const slots = this.shadowRoot.querySelectorAll('slot')
-    slots[1].addEventListener('slotchange', event => {
-        console.dir(slots[1].assignedNodes())
-    })
+    const slots = this.shadowRoot.querySelectorAll("slot");
+    slots[1].addEventListener("slotchange", (event) => {
+      console.dir(slots[1].assignedNodes());
+    });
+
+    const cancelButton = this.shadowRoot.querySelector("#cancel-btn");
+    const confirmButton = this.shadowRoot.querySelector("#confirm-btn");
+    cancelButton.addEventListener('click', this._cancel.bind(this));
+    confirmButton.addEventListener('click', this._confirm.bind(this));
   }
+
   // Umas das formas de fazer
   attributeChangedCallback(name, oldValue, newValue) {
     /* if ((name = "opened")) { */
-      if (this.hasAttribute("opened")) {
-          this.isOpen = true
-        /* this.shadowRoot.querySelector("#backdrop").style.opacity = 1;
+    if (this.hasAttribute("opened")) {
+      this.isOpen = true;
+      /* this.shadowRoot.querySelector("#backdrop").style.opacity = 1;
         this.shadowRoot.querySelector("#backdrop").style.pointerevents = "all";
         this.shadowRoot.querySelector("#modal").style.opacity = 1;
         this.shadowRoot.querySelector("#modal").style.pointerevents = "all"; */
-      } else {
-          this.isOpen = false
-      }
+    } else {
+      this.isOpen = false;
     }
-  
+  }
 
   static get observedAttributes() {
     return ["opened"];
@@ -106,7 +111,23 @@ class Modal extends HTMLElement {
   open() {
     this.setAttribute("opened", "");
     this.isOpen = true;
-    console.log(this.isOpen)
+    console.log(this.isOpen);
+  }
+
+  hide() {
+    if (this.hasAttribute("opened")) {
+      this.removeAttribute("opened");
+    }
+    this.isOpen = false
+  }
+
+  _cancel(){
+      this.hide()
+      console.log('cancelling...')
+  }
+  _confirm(){
+      this.hide()
+      console.log('confirmming...')
   }
 }
 
