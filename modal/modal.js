@@ -59,14 +59,18 @@ class Modal extends HTMLElement {
             padding: 1rem;
         }
 
+        ::slotted(h1) {
+            font-size: 2rem;
+        }
+
     </style>
     <div id="backdrop"></div>
     <div id="modal">    
         <header>
-            <h1>Please Confirm</h1>
+            <slot name="title">Please Confirm Payment</slot>
         </header>
         <section id="main">
-            <slot></slot>
+            <slot name="main"></slot>
         </section>
         <section id="actions">
             <button>Cancel</button>
