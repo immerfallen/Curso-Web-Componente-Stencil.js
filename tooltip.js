@@ -26,6 +26,10 @@ class Tooltip extends HTMLElement {
       ::slotted(.highlight){
         border-bottom: 1px dotted red
       }
+
+      :host{
+        position: relative
+      }
       
       :host(.important) {
         background: var(--color-primary, #ccc)
@@ -54,9 +58,15 @@ class Tooltip extends HTMLElement {
     }
 
     this._tooltipIcon = this.shadowRoot.querySelector("span");
-    this._tooltipIcon.addEventListener("mouseenter", this._showTooltip.bind(this));
-    this._tooltipIcon.addEventListener("mouseleave",  this._hideTooltip.bind(this));
-    this.style.position = "relative";
+    this._tooltipIcon.addEventListener(
+      "mouseenter",
+      this._showTooltip.bind(this)
+    );
+    this._tooltipIcon.addEventListener(
+      "mouseleave",
+      this._hideTooltip.bind(this)
+    );
+    this._render();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -78,7 +88,7 @@ class Tooltip extends HTMLElement {
   }
 
   _render() {
-    let tooltipContainer = this.shadowRoot.querySelector('div');
+    let tooltipContainer = this.shadowRoot.querySelector("div");
     if (this._tooltipVisible) {
       tooltipContainer = document.createElement("div");
       tooltipContainer.textContent = this._tooltipText;
@@ -92,13 +102,13 @@ class Tooltip extends HTMLElement {
   }
 
   _showTooltip() {
-    this._tooltipVisible = true
-    this._render()
+    this._tooltipVisible = true;
+    this._render();
   }
 
   _hideTooltip() {
-    this._tooltipVisible = false
-    this._render()
+    this._tooltipVisible = false;
+    this._render();
   }
 }
 
